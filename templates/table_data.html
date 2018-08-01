@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>movies duration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <h2>This colection belongs to {{name}} </h2>
+
+    <h3>{{ url_for('static', filename='css/stayle.css') }}</h3>
+    <table >
+      <tr>
+        <th>movie</th>
+        <th>length</th>
+        <th>comments</th>
+      </tr>
+
+      {% for movie, length in movies.items() %}
+
+        <tr>
+          <td>{{movie}}</td>
+          <td>{{length}}</td>
+
+          {% if length <= 2 %}
+            <td>short</td>
+          {% elif length >=2 and length <=3 %}
+            <td>medium</td>
+          {% else %}
+            <td style="background-color: yellow">long</td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+
+
+    </table>
+  </body>
+</html>
